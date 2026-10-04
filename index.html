@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>QR Code Generator — Free Online QR Maker for WiFi, vCard, URL, Email, SMS | Universe Invedors</title>
+<meta name="description" content="Free online QR code generator. Create QR codes for URLs, text, WiFi, vCard, email, SMS. Customise colors, add logo, download as PNG or SVG. No sign-up."/>
+<meta name="keywords" content="QR code generator free,online QR maker,WiFi QR code,vCard QR code,QR code with logo,custom QR code,QR code PNG download"/>
+<link rel="canonical" href="https://qr.universeinvedors.tech/"/>
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large"/>
+<meta name="author" content="Universe Invedors"/>
+<meta property="og:title" content="QR Code Generator — Free Online with Logo and Colors"/><meta property="og:url" content="https://qr.universeinvedors.tech/"/><meta property="og:type" content="website"/><meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/><meta property="og:site_name" content="Universe Invedors Tools"/>
+<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/>
+<meta name="theme-color" content="#090c13"/>
+<meta name="google-adsense-account" content="ca-pub-8759032363251002"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"QR Code Generator","url":"https://qr.universeinvedors.tech","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Universe Invedors","url":"https://universeinvedors.tech"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Universe Invedors","item":"https://universeinvedors.tech"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://universeinvedors.tech/tools"},{"@type":"ListItem","position":3,"name":"QR Code Generator","item":"https://qr.universeinvedors.tech"}]}]</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#090c13;--surf:#0d1117;--elev:#141b28;--card:#1a2235;--inp:#111827;--t1:#f0f4ff;--t2:#a8b5cc;--t3:#64748b;--t4:#3d4f6e;--acc:#3b82f6;--acc-h:#60a5fa;--acc-glow:rgba(59,130,246,.22);--green:#10b981;--border:rgba(255,255,255,.07);--bh:rgba(255,255,255,.13);--font:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;--r:8px;--th:50px;--tr:160ms cubic-bezier(.4,0,.2,1)}
+html{font-size:16px}body{font-family:var(--font);background:var(--bg);color:var(--t1);min-height:100dvh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:3px}
+.topbar{height:var(--th);background:rgba(9,12,19,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem;padding:0 .75rem;flex-shrink:0;position:sticky;top:0;z-index:200}
+.logo{font-size:.82rem;font-weight:700;color:var(--t1);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:.4rem}.logo:hover{color:var(--acc-h);text-decoration:none}
+.etabs{display:flex;gap:.1rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r);padding:3px;overflow-x:auto;flex-shrink:1}
+.et{padding:.26rem .65rem;border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--t3);white-space:nowrap;transition:all var(--tr)}.et:hover{background:rgba(255,255,255,.06);color:var(--t2)}.et.active{background:var(--acc);color:#fff;box-shadow:0 0 10px var(--acc-glow)}
+.sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.32rem .75rem;border-radius:var(--r);font-size:.73rem;font-weight:600;cursor:pointer;border:none;transition:all var(--tr);white-space:nowrap}
+.bg{background:rgba(255,255,255,.05);color:var(--t2);border:1px solid var(--border)}.bg:hover{background:rgba(255,255,255,.09);border-color:var(--bh);color:var(--t1)}
+.bp{background:var(--acc);color:#fff}.bp:hover{background:var(--acc-h)}
+.bsm{padding:.22rem .55rem;font-size:.68rem}
+.container{max-width:800px;margin:0 auto;padding:1.25rem 1rem;flex:1;width:100%}
+.qr-panel{display:none}.qr-panel.active{display:block}
+.card{background:var(--surf);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin-bottom:1.25rem}
+.fl{font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--t3);margin-bottom:.3rem;display:block}
+.fi{width:100%;padding:.5rem .75rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.88rem;outline:none;margin-bottom:.65rem;transition:border-color var(--tr)}
+.fi:focus{border-color:rgba(59,130,246,.45)}
+.field-row{display:flex;gap:.65rem;flex-wrap:wrap}
+.field-row .field{flex:1;min-width:120px}
+/* QR display */
+.qr-display{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.5rem;background:var(--card);border:1px solid var(--border);border-radius:14px;margin-top:1rem}
+#qr-canvas{border-radius:8px;background:#fff;padding:8px}
+.qr-controls{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+/* Style row */
+.style-row{display:flex;flex-wrap:wrap;gap:.65rem;align-items:flex-start;margin-top:.85rem;padding:.85rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r)}
+.color-row{display:flex;align-items:center;gap:.4rem}
+.color-row input[type=color]{width:36px;height:36px;border-radius:6px;border:1px solid var(--border);padding:.15rem;background:transparent;cursor:pointer}
+.color-label{font-size:.72rem;color:var(--t2)}
+.seo-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem .75rem;padding:.35rem .75rem;border-top:1px solid var(--border);background:var(--surf);font-size:.65rem;color:var(--t3)}
+.seo-footer a{color:var(--t3)}.seo-footer a:hover{color:var(--t2);text-decoration:none}.sf-links{display:flex;flex-wrap:wrap;gap:.2rem .6rem}
+.toasts{position:fixed;bottom:2.5rem;right:1rem;z-index:999;display:flex;flex-direction:column;gap:.4rem;pointer-events:none}
+.toast{padding:.5rem .85rem;border-radius:var(--r);font-size:.75rem;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--t1);box-shadow:0 6px 24px rgba(0,0,0,.5);animation:tin .2s ease}
+.toast.ok{border-color:rgba(16,185,129,.35);color:var(--green)}.toast.err{border-color:rgba(239,68,68,.35);color:#f87171}.toast.info{border-color:rgba(59,130,246,.35);color:var(--acc-h)}
+@keyframes tin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a href="https://universeinvedors.tech/tools" class="logo">📱 <span style="color:var(--acc-h)">QR Generator</span></a>
+  <div class="etabs">
+    <button class="et active" id="et-text"  onclick="setMode('text')">📝 Text/URL</button>
+    <button class="et" id="et-wifi"  onclick="setMode('wifi')">📶 WiFi</button>
+    <button class="et" id="et-vcard" onclick="setMode('vcard')">👤 vCard</button>
+    <button class="et" id="et-email" onclick="setMode('email')">📧 Email</button>
+    <button class="et" id="et-sms"   onclick="setMode('sms')">💬 SMS</button>
+  </div>
+  <div class="sp"></div>
+  <span style="font-size:.67rem;color:var(--t4)">Free · No sign-up</span>
+</header>
+
+<div class="container">
+  <!-- TEXT/URL -->
+  <div id="qr-text" class="qr-panel active">
+    <div class="card">
+      <label class="fl">Text or URL</label>
+      <input class="fi" type="text" id="qr-text-input" placeholder="https://universeinvedors.tech" oninput="generate()">
+    </div>
+  </div>
+  <!-- WIFI -->
+  <div id="qr-wifi" class="qr-panel">
+    <div class="card">
+      <label class="fl">WiFi Network Name (SSID)</label><input class="fi" type="text" id="qr-wifi-ssid" placeholder="MyWiFi" oninput="generate()">
+      <label class="fl">Password</label><input class="fi" type="text" id="qr-wifi-pass" placeholder="password123" oninput="generate()">
+      <label class="fl">Encryption</label>
+      <select class="fi" id="qr-wifi-enc" onchange="generate()">
+        <option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None (Open)</option>
+      </select>
+    </div>
+  </div>
+  <!-- VCARD -->
+  <div id="qr-vcard" class="qr-panel">
+    <div class="card">
+      <div class="field-row">
+        <div class="field"><label class="fl">First name</label><input class="fi" type="text" id="qr-vcard-first" placeholder="Sourav" oninput="generate()"></div>
+        <div class="field"><label class="fl">Last name</label><input class="fi" type="text" id="qr-vcard-last" placeholder="Mukherjee" oninput="generate()"></div>
+      </div>
+      <label class="fl">Phone</label><input class="fi" type="text" id="qr-vcard-phone" placeholder="+91 89184 87914" oninput="generate()">
+      <label class="fl">Email</label><input class="fi" type="email" id="qr-vcard-email" placeholder="contact@universeinvedors.com" oninput="generate()">
+      <label class="fl">Company</label><input class="fi" type="text" id="qr-vcard-company" placeholder="Universe Invedors" oninput="generate()">
+      <label class="fl">Website</label><input class="fi" type="text" id="qr-vcard-url" placeholder="https://universeinvedors.tech" oninput="generate()">
+    </div>
+  </div>
+  <!-- EMAIL -->
+  <div id="qr-email" class="qr-panel">
+    <div class="card">
+      <label class="fl">To</label><input class="fi" type="email" id="qr-email-to" placeholder="someone@example.com" oninput="generate()">
+      <label class="fl">Subject</label><input class="fi" type="text" id="qr-email-subject" placeholder="Hello" oninput="generate()">
+      <label class="fl">Body</label><textarea class="fi" id="qr-email-body" rows="3" placeholder="Your message..." oninput="generate()"></textarea>
+    </div>
+  </div>
+  <!-- SMS -->
+  <div id="qr-sms" class="qr-panel">
+    <div class="card">
+      <label class="fl">Phone number</label><input class="fi" type="text" id="qr-sms-phone" placeholder="+91 98765 43210" oninput="generate()">
+      <label class="fl">Message</label><textarea class="fi" id="qr-sms-msg" rows="3" placeholder="Your SMS message..." oninput="generate()"></textarea>
+    </div>
+  </div>
+
+  <!-- Style controls -->
+  <div class="style-row">
+    <div>
+      <div class="color-row"><input type="color" id="qr-fg" value="#000000" onchange="generate()"><span class="color-label">Foreground</span></div>
+    </div>
+    <div>
+      <div class="color-row"><input type="color" id="qr-bg" value="#ffffff" onchange="generate()"><span class="color-label">Background</span></div>
+    </div>
+    <div style="flex:1;min-width:120px">
+      <label class="fl" style="margin-bottom:.2rem">Size</label>
+      <input type="range" id="qr-size" min="128" max="512" step="32" value="256" oninput="generate()" style="width:100%;accent-color:var(--acc)">
+      <span style="font-size:.7rem;color:var(--t3)" id="qr-size-label">256px</span>
+    </div>
+    <div style="flex:1;min-width:120px">
+      <label class="fl" style="margin-bottom:.2rem">Error correction</label>
+      <select id="qr-ec" onchange="generate()" style="padding:.38rem .55rem;background:var(--inp);border:1px solid var(--border);border-radius:var(--r);color:var(--t1);font-size:.78rem;outline:none">
+        <option value="L">Low (7%)</option><option value="M" selected>Medium (15%)</option><option value="Q">Quartile (25%)</option><option value="H">High (30%)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- QR display -->
+  <div class="qr-display">
+    <canvas id="qr-canvas" width="256" height="256"></canvas>
+    <div class="qr-controls">
+      <button class="btn bp bsm" onclick="downloadPNG()">↓ PNG</button>
+      <button class="btn bg bsm" onclick="downloadSVG()">↓ SVG</button>
+      <button class="btn bg bsm" onclick="copyQR()">📋 Copy</button>
+    </div>
+    <p id="qr-status" style="font-size:.75rem;color:var(--t3)">Type something to generate a QR code…</p>
+  </div>
+</div>
+
+<footer class="seo-footer">
+  <div class="sf-links">
+    <a href="https://universeinvedors.tech">Universe Invedors</a><a href="https://universeinvedors.tech/tools">All Tools</a>
+    <a href="https://calc.universeinvedors.tech">Calculators</a><a href="https://json.universeinvedors.tech">JSON</a>
+    <a href="https://color.universeinvedors.tech">Colors</a><a href="https://text.universeinvedors.tech">Text</a>
+    <a href="https://code.universeinvedors.tech">Code</a><a href="https://diagram.universeinvedors.tech">Diagrams</a>
+    <a href="https://chart.universeinvedors.tech">Charts</a><a href="https://ocr.universeinvedors.tech">OCR</a>
+    <a href="https://pdf.universeinvedors.tech">PDF</a><a href="https://image.universeinvedors.tech">Image</a>
+    <a href="https://3d.universeinvedors.tech">3D</a><a href="https://map.universeinvedors.tech">Maps</a><a href="https://media.universeinvedors.tech">Media</a>
+  </div>
+  <span>© 2024 Universe Invedors · QR Code Generator · Free · No sign-up</span>
+</footer>
+<div class="toasts" id="toasts"></div>
+<script>
+var currentMode='text'
+
+function setMode(mode){
+  currentMode=mode
+  document.querySelectorAll('.qr-panel').forEach(function(p){p.classList.remove('active')})
+  document.querySelectorAll('.et').forEach(function(t){t.classList.remove('active')})
+  var panel=document.getElementById('qr-'+mode)
+  var btn=document.getElementById('et-'+mode)
+  if(panel)panel.classList.add('active')
+  if(btn)btn.classList.add('active')
+  generate()
+}
+
+function getQRData(){
+  if(currentMode==='text'){
+    return document.getElementById('qr-text-input').value||''
+  }else if(currentMode==='wifi'){
+    var ssid=document.getElementById('qr-wifi-ssid').value
+    var pass=document.getElementById('qr-wifi-pass').value
+    var enc=document.getElementById('qr-wifi-enc').value
+    if(!ssid)return''
+    return'WIFI:T:'+enc+';S:'+ssid+';P:'+pass+';;'
+  }else if(currentMode==='vcard'){
+    var f=document.getElementById('qr-vcard-first').value
+    var l=document.getElementById('qr-vcard-last').value
+    if(!f&&!l)return''
+    return'BEGIN:VCARD\nVERSION:3.0\nFN:'+f+' '+l+'\nN:'+l+';'+f+';;;\n'+
+      (document.getElementById('qr-vcard-phone').value?'TEL:'+document.getElementById('qr-vcard-phone').value+'\n':'')+
+      (document.getElementById('qr-vcard-email').value?'EMAIL:'+document.getElementById('qr-vcard-email').value+'\n':'')+
+      (document.getElementById('qr-vcard-company').value?'ORG:'+document.getElementById('qr-vcard-company').value+'\n':'')+
+      (document.getElementById('qr-vcard-url').value?'URL:'+document.getElementById('qr-vcard-url').value+'\n':'')+
+      'END:VCARD'
+  }else if(currentMode==='email'){
+    var to=document.getElementById('qr-email-to').value
+    if(!to)return''
+    var subject=document.getElementById('qr-email-subject').value
+    var body=document.getElementById('qr-email-body').value
+    return'mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)
+  }else if(currentMode==='sms'){
+    var phone=document.getElementById('qr-sms-phone').value
+    if(!phone)return''
+    var msg=document.getElementById('qr-sms-msg').value
+    return'smsto:'+phone+':'+msg
+  }
+  return''
+}
+
+function generate(){
+  var data=getQRData()
+  var canvas=document.getElementById('qr-canvas')
+  var status=document.getElementById('qr-status')
+  if(!data){
+    status.textContent='Enter data to generate QR code…'
+    status.style.color='var(--t3)'
+    var ctx=canvas.getContext('2d')
+    ctx.clearRect(0,0,canvas.width,canvas.height)
+    return
+  }
+  var size=parseInt(document.getElementById('qr-size').value)
+  var fg=document.getElementById('qr-fg').value
+  var bg=document.getElementById('qr-bg').value
+  var ec=document.getElementById('qr-ec').value
+  document.getElementById('qr-size-label').textContent=size+'px'
+  canvas.width=size;canvas.height=size
+
+  if(typeof QRCode==='undefined'){
+    status.textContent='QR library loading…';return
+  }
+  QRCode.toCanvas(canvas,data,{
+    width:size,
+    margin:2,
+    color:{dark:fg,light:bg},
+    errorCorrectionLevel:ec
+  },function(err){
+    if(err){
+      status.textContent='Error: '+err.message
+      status.style.color='#f87171'
+    }else{
+      status.textContent='✓ QR code generated — '+data.length+' chars'
+      status.style.color='var(--green)'
+    }
+  })
+}
+
+function downloadPNG(){
+  var canvas=document.getElementById('qr-canvas')
+  if(!canvas.toDataURL)return
+  var a=document.createElement('a')
+  a.download='qr-code.png'
+  a.href=canvas.toDataURL('image/png')
+  a.click()
+  toast('PNG downloaded','ok')
+}
+
+function downloadSVG(){
+  var data=getQRData()
+  if(!data){toast('Generate a QR first','err');return}
+  if(typeof QRCode==='undefined'){toast('QR library not loaded','err');return}
+  QRCode.toString(data,{type:'svg',color:{dark:document.getElementById('qr-fg').value,light:document.getElementById('qr-bg').value},margin:2},function(err,url){
+    if(err){toast('SVG error: '+err.message,'err');return}
+    var a=document.createElement('a')
+    a.download='qr-code.svg'
+    a.href='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(url)
+    a.click()
+    toast('SVG downloaded','ok')
+  })
+}
+
+function copyQR(){
+  var canvas=document.getElementById('qr-canvas')
+  canvas.toBlob(function(blob){
+    navigator.clipboard.write([new ClipboardItem({'image/png':blob})]).then(function(){toast('QR copied to clipboard','ok')}).catch(function(){toast('Copy not supported in this browser','err')})
+  })
+}
+
+function toast(msg,type){var e=document.createElement('div');e.className='toast'+(type?' '+type:'');e.textContent=msg;document.getElementById('toasts').appendChild(e);setTimeout(function(){e.remove()},2800)}
+</script>
+</body>
+</html>
