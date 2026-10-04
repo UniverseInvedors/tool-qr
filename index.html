@@ -14,6 +14,13 @@
 <meta name="theme-color" content="#090c13"/>
 <meta name="google-adsense-account" content="ca-pub-8759032363251002"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3GH7524RVW"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-3GH7524RVW',{page_title:document.title,page_location:location.href});
+function gaEvent(action,category,label,value){gtag('event',action,{event_category:category,event_label:label,value:value});}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"SoftwareApplication","name":"QR Code Generator","url":"https://qr.universeinvedors.tech","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"Universe Invedors","url":"https://universeinvedors.tech"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Universe Invedors","item":"https://universeinvedors.tech"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://universeinvedors.tech/tools"},{"@type":"ListItem","position":3,"name":"QR Code Generator","item":"https://qr.universeinvedors.tech"}]}]</script>
 <style>
@@ -281,5 +288,29 @@ function copyQR(){
 
 function toast(msg,type){var e=document.createElement('div');e.className='toast'+(type?' '+type:'');e.textContent=msg;document.getElementById('toasts').appendChild(e);setTimeout(function(){e.remove()},2800)}
 </script>
+<script>
+// GA4 Custom Events — QR Generator
+(function(){
+  // Track QR type selections
+  document.querySelectorAll('.tab,.et,[data-type]').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      gaEvent('qr_type_selected','QR Generator',this.textContent.trim());
+    });
+  });
+  // Track QR generation
+  document.querySelectorAll('button').forEach(function(btn){
+    var t=btn.textContent.trim().toLowerCase();
+    if(t.includes('generat')||t.includes('creat')||t.includes('build')){
+      btn.addEventListener('click',function(){
+        gaEvent('qr_generated','QR Generator',document.querySelector('.tab.active,.et.active')?.textContent.trim()||'unknown');
+      });
+    }
+  });
+  // Track downloads — most important metric for QR tool
+  document.querySelectorAll('[download],[onclick*="download"],[onclick*="Download"],[onclick*="save"],[onclick*="Save"]').forEach(function(el){
+    el.addEventListener('click',function(){gaEvent('qr_downloaded','QR Generator','png');});
+  });
+})();
+</script>
 </body>
-</html>
+</html>>
