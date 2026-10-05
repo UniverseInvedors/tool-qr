@@ -11,6 +11,7 @@
 <meta property="og:title" content="QR Code Generator — Free Online with Logo and Colors"/><meta property="og:url" content="https://qr.universeinvedors.tech/"/><meta property="og:type" content="website"/><meta property="og:image" content="https://universeinvedors.tech/og-image.jpg"/><meta property="og:site_name" content="Universe Invedors Tools"/>
 <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:image" content="https://universeinvedors.tech/og-image.jpg"/>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="https://universeinvedors.tech/favicon.ico" sizes="any"/>
+<link rel="manifest" href="/manifest.json"/>
 <meta name="theme-color" content="#090c13"/>
 <meta name="google-adsense-account" content="ca-pub-8759032363251002"/>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8759032363251002" crossorigin="anonymous"></script>
@@ -308,6 +309,7 @@ function downloadPNG(){
   a.download='qr-code.png'
   a.href=canvas.toDataURL('image/png')
   a.click()
+  saveToHistory()
   toast('PNG downloaded','ok')
 }
 
@@ -323,6 +325,58 @@ function downloadSVG(){
     a.click()
     toast('SVG downloaded','ok')
   })
+}
+
+// QR History — localStorage
+function saveToHistory(){
+  var data=getQRData()
+  if(!data)return
+  var canvas=document.getElementById('qr-canvas')
+  var thumbnail=canvas.toDataURL('image/png')
+  var history=JSON.parse(localStorage.getItem('ui_qr_history')||'[]')
+  // Avoid duplicates
+  if(history.find(function(h){return h.data===data}))return
+  history.unshift({data:data,mode:currentMode,thumbnail:thumbnail,date:new Date().toLocaleDateString()})
+  if(history.length>20)history.pop()
+  localStorage.setItem('ui_qr_history',JSON.stringify(history))
+  renderHistory()
+}
+function renderHistory(){
+  var history=JSON.parse(localStorage.getItem('ui_qr_history')||'[]')
+  var el=document.getElementById('qr-history-list')
+  if(!el)return
+  if(!history.length){el.innerHTML='<p style="font-size:.75rem;color:var(--text-3);padding:.5rem 0">No QR codes generated yet.</p>';return}
+  el.innerHTML=history.map(function(h,i){
+    var label=h.data.length>40?h.data.slice(0,40)+'…':h.data
+    return'<div style="display:flex;align-items:center;gap:.6rem;padding:.4rem 0;border-bottom:1px solid var(--border)">'+
+      '<img src="'+h.thumbnail+'" style="width:40px;height:40px;border-radius:4px;background:#fff;padding:2px" alt="QR"/>'+
+      '<div style="flex:1;min-width:0"><div style="font-size:.75rem;color:var(--text-1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+h.data.replace(/</g,'&lt;')+'</div>'+
+      '<div style="font-size:.67rem;color:var(--text-3)">'+h.mode+' · '+h.date+'</div></div>'+
+      '<button onclick="loadFromHistory('+i+')" style="background:none;border:none;color:var(--accent-light);font-size:.72rem;cursor:pointer;flex-shrink:0">Load</button>'+
+      '<button onclick="deleteHistory('+i+')" style="background:none;border:none;color:#f87171;font-size:.72rem;cursor:pointer;flex-shrink:0">×</button>'+
+      '</div>'
+  }).join('')
+}
+function loadFromHistory(i){
+  var history=JSON.parse(localStorage.getItem('ui_qr_history')||'[]')
+  var h=history[i];if(!h)return
+  setMode(h.mode)
+  // Try to fill the main text input
+  var textInput=document.getElementById('qr-text-input')
+  if(textInput)textInput.value=h.data
+  generate()
+  toast('QR loaded from history','ok')
+}
+function deleteHistory(i){
+  var history=JSON.parse(localStorage.getItem('ui_qr_history')||'[]')
+  history.splice(i,1)
+  localStorage.setItem('ui_qr_history',JSON.stringify(history))
+  renderHistory()
+}
+function clearHistory(){
+  localStorage.removeItem('ui_qr_history')
+  renderHistory()
+  toast('History cleared','ok')
 }
 
 function copyQR(){
@@ -357,6 +411,9 @@ function toast(msg,type){var e=document.createElement('div');e.className='toast'
     el.addEventListener('click',function(){gaEvent('qr_downloaded','QR Generator','png');});
   });
 })();
+</script>
+<script>
+if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){})}
 </script>
 </body>
 </html>>

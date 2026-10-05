@@ -1,0 +1,35 @@
+﻿{
+    "description":  "Free QR code generator for URLs, WiFi, vCard, email and SMS.",
+    "short_name":  "QR",
+    "shortcuts":  [
+                      {
+                          "url":  "/",
+                          "name":  "QR Generator",
+                          "description":  "Free QR code generator for URLs, WiFi, vCard, email and SMS."
+                      }
+                  ],
+    "icons":  [
+                  {
+                      "type":  "image/png",
+                      "sizes":  "192x192",
+                      "src":  "/icons/icon-192.png"
+                  },
+                  {
+                      "purpose":  "maskable",
+                      "type":  "image/png",
+                      "sizes":  "512x512",
+                      "src":  "/icons/icon-512.png"
+                  }
+              ],
+    "theme_color":  "#3b82f6",
+    "display":  "standalone",
+    "name":  "Universe Invedors — QR Generator",
+    "categories":  [
+                       "productivity",
+                       "utilities",
+                       "developer tools"
+                   ],
+    "background_color":  "#03050a",
+    "start_url":  "/",
+    "orientation":  "any"
+}
